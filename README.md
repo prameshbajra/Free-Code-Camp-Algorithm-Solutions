@@ -3,5 +3,5 @@
 
 Some crappy code I wrote and will write for solution of problems in Free Code Camp.
 
-    - Contains test cases.
+    - Contains all test cases too.
 
