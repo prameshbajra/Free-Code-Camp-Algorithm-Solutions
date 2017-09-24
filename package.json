@@ -1,0 +1,20 @@
+{
+    "name": "code-practice",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "mocha || true"
+    },
+    "author": "Pramesh Bajracharya",
+    "license": "ISC",
+    "devDependencies": {
+        "chai": "^4.1.2",
+        "eslint-config-airbnb-base": "^12.0.0",
+        "eslint-plugin-import": "^2.7.0",
+        "mocha": "^3.5.3"
+    },
+    "dependencies": {
+        "eslint": "^4.7.2"
+    }
+}
