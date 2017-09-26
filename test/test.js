@@ -5,6 +5,7 @@ const whatsInAName = require('../src/whatsInAName');
 const searchAndReplace = require('../src/searchAndReplace');
 const translatePigLatin = require('../src/pigLatin');
 const dnaPairing = require('../src/dnaPairing');
+const missingLetters = require('../src/missingLetters');
 
 describe('whatsInAName()', () => {
     it('should return [{ first: "Tybalt", last: "Capulet" }]', () => {
@@ -64,10 +65,20 @@ describe("pigLatin()", () => {
     });
 });
 
-describe("dnaPairing", () => {
+describe("dnaPairing()", () => {
     it('Should return correct values accordingly', () => {
         expect(dnaPairing("ATCGA")).to.deep.equal([["A", "T"], ["T", "A"], ["C", "G"], ["G", "C"], ["A", "T"]]);
         expect(dnaPairing("TTGAG")).to.deep.equal([["T", "A"], ["T", "A"], ["G", "C"], ["A", "T"], ["G", "C"]]);
         expect(dnaPairing("CTCTA")).to.deep.equal([["C", "G"], ["T", "A"], ["C", "G"], ["T", "A"], ["A", "T"]]);
     });
 });
+
+describe("missingLetters()", () => {
+    it('Should return correct values accordingly', () => {
+        expect(missingLetters("abce")).to.equal("d");
+        expect(missingLetters("abcdefghjklmno")).to.deep.equal("i");
+        expect(missingLetters("bcd")).to.equal(undefined);
+        expect(missingLetters("yz")).to.equal(undefined);
+    });
+});
+
