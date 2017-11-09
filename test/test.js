@@ -6,6 +6,7 @@ const searchAndReplace = require('../src/searchAndReplace');
 const translatePigLatin = require('../src/pigLatin');
 const dnaPairing = require('../src/dnaPairing');
 const missingLetters = require('../src/missingLetters');
+const sortedUnion = require('../src/sortedUnion');
 
 describe('whatsInAName()', () => {
     it('should return [{ first: "Tybalt", last: "Capulet" }]', () => {
@@ -82,3 +83,11 @@ describe("missingLetters()", () => {
     });
 });
 
+describe("sortedUnion()", () => {
+    it('Should return correct values accordingly', () => {
+        expect(sortedUnion([1, 3, 2], [5, 2, 1, 4], [2, 1])).to.deep.equal([1, 3, 2, 5, 4]);
+        expect(sortedUnion([1, 3, 2], [1, [5]], [2, [4]])).to.deep.equal([1, 3, 2, [5], [4]]);
+        expect(sortedUnion([1, 2, 3], [5, 2, 1])).to.deep.equal([1, 2, 3, 5]);
+        expect(sortedUnion([1, 2, 3], [5, 2, 1, 4], [2, 1], [6, 7, 8])).to.deep.equal([1, 2, 3, 5, 4, 6, 7, 8]);
+    });
+});
