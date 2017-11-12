@@ -8,6 +8,7 @@ const dnaPairing = require('../src/dnaPairing');
 const missingLetters = require('../src/missingLetters');
 const sortedUnion = require('../src/sortedUnion');
 const convertHTML = require('../src/convertHtml');
+const spinalCase = require('../src/spinalCase');
 
 describe('whatsInAName()', () => {
     it('should return [{ first: "Tybalt", last: "Capulet" }]', () => {
@@ -105,3 +106,13 @@ describe("sortedUnion()", () => {
 //         expect(convertHTML("abc")).to.equal("abc");
 //     });
 // });
+
+describe("spinalCase()", () => {
+    it('Should return correct values accordingly', () => {
+        expect(spinalCase("This Is Spinal Tap")).to.equal("this-is-spinal-tap");
+        expect(spinalCase("thisIsSpinalTap")).to.equal("this-is-spinal-tap");
+        expect(spinalCase("The_Andy_Griffith_Show")).to.equal("the-andy-griffith-show");
+        expect(spinalCase("Teletubbies say Eh-oh")).to.equal("teletubbies-say-eh-oh");
+        expect(spinalCase("AllThe-small Things")).to.equal("all-the-small-things");
+    });
+});
